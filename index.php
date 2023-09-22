@@ -8,7 +8,7 @@
     <title>Projeto MVC</title>
 </head>
 <body>
-    <h1 class="text-center p-3">Hello World!</h1>
+    <h1 class="text-center p-3">CRUD em PHP com MVC</h1>
     <div class="container-fluid row">
         <form class="col-4 p-3" method="POST">
             <h3 class="text-center text-secondary">Cadastro de Atores</h3>
