@@ -17,8 +17,9 @@
     <form class="col-4 p-3 m-auto" method="POST">
         <h3 class="text-center text-secondary">Atualização de Cadastro</h3>
         <p class="text-center text-secondary">Insira aqui os dados dos atores que participaram do filme</p>
-
+        <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
         <?php
+            include "controller/updateProduct.php";
             
             while($data=$sql->fetch_object()){?>
                 <div class="mb-3">
