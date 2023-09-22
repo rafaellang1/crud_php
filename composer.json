@@ -1,0 +1,14 @@
+{
+    "name": "rafaellang/atividade3",
+    "description": "atividade 3",
+    "type": "project",
+    "require": {
+        "monolog/monolog": "1.0.*"
+    },
+    "authors": [
+        {
+            "name": "Rafael Lang",
+            "email": "rafael.lang9@gmail.com"
+        }
+    ]
+}
