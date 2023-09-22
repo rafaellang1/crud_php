@@ -8,13 +8,22 @@
     <title>Projeto MVC</title>
 </head>
 <body>
-    <h1 class="text-center p-3">CRUD em PHP com MVC</h1>
+    <script>
+        function eliminar() {
+            var response=confirm("Tem certeza que deeja eliminar o registro?");
+            return response
+        }
+    </script>
+    <h1 class="text-center p-3 text-secondary">CRUD em PHP com MVC</h1>
+    <?php
+        include "model/connection.php";
+        include "controller/deleteController.php";
+    ?>
     <div class="container-fluid row">
         <form class="col-4 p-3" method="POST">
             <h3 class="text-center text-secondary">Cadastro de Atores</h3>
             <p class="text-center text-secondary">Insira aqui os dados dos atores que participaram do filme</p>
             <?php
-                include "model/connection.php";
                 include "controller/createController.php";
             ?>
             <div class="mb-3">
@@ -48,7 +57,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        include "model/connection.php";
+                        // include "model/connection.php";
                         $sql = $connection->query(" select * from atores ");
                         while($data = $sql->fetch_object()) { ?>
                             <tr>
@@ -58,7 +67,7 @@
                                 <td><?= $data->data_nascimento ?></td>
                                 <td>
                                     <a href="updateController.php?id=<?= $data->id ?>" class="btn btn-small btn-primary"><i class="fa-solid fa-user-pen"></i></i></a>
-                                    <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-trash-can"></i></i></a>
+                                    <a onclick="return eliminar()" href="index.php?id=<?= $data->id ?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash-can"></i></i></a>
                                 </td>
                             </tr>
                        <?php }

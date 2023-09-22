@@ -5,12 +5,14 @@
     if ($connection->connect_error) {
         die("Erro na conexão: ".$connection->connect_error);
     }
-    echo "conexao bem sucedida";
-
+    // echo "conexao bem sucedida";
+    
     // Cria o banco de dados "cinema" se ele não existir
     $criarBanco = "CREATE DATABASE IF NOT EXISTS cinema";
+
+
     if ($connection->query($criarBanco) === TRUE) {
-        echo "Banco de dados 'cinema' criado com sucesso!<br>";
+        echo '<div class="alert alert-light p-0 sz-2">DB "cinema" criado com sucesso<br></div>';
     } else {
         echo "Erro ao criar o banco de dados 'cinema': " . $connection->error . "<br>";
     }
@@ -27,7 +29,7 @@
     )";
 
     if ($connection->query($criarTabela) === TRUE) {
-        echo "Tabela 'atores' criada com sucesso!";
+        echo '<div class="alert alert-light p-0">Tabela "atores" criada com sucesso</div>';
     } else {
         echo "Erro ao criar a tabela 'atores': " . $connection->error;
     }
