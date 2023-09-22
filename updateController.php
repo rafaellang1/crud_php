@@ -19,7 +19,7 @@
         <p class="text-center text-secondary">Insira aqui os dados dos atores que participaram do filme</p>
         <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
         <?php
-            include "controller/updateProduct.php";
+            include "controller/updateController.php";
             
             while($data=$sql->fetch_object()){?>
                 <div class="mb-3">

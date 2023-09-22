@@ -58,7 +58,7 @@
                                 <td><?= $data->nacionalidade ?></td>
                                 <td><?= $data->data_nascimento ?></td>
                                 <td>
-                                    <a href="updateProduct.php?id=<?= $data->id ?>" class="btn btn-small btn-primary"><i class="fa-solid fa-user-pen"></i></i></a>
+                                    <a href="updateController.php?id=<?= $data->id ?>" class="btn btn-small btn-primary"><i class="fa-solid fa-user-pen"></i></i></a>
                                     <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-trash-can"></i></i></a>
                                 </td>
                             </tr>
