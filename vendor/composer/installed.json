@@ -51,6 +51,6 @@
             "install-path": "../monolog/monolog"
         }
     ],
-    "dev": true,
+    "dev": false,
     "dev-package-names": []
 }

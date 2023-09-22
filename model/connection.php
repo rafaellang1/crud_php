@@ -1,33 +1,34 @@
 <?php
- $connection = new mysqli("localhost","root","","cinemas");
- $connection->set_charset("utf8");
+    $connection = new mysqli("localhost","root","");
+    $connection->set_charset("utf8");
 
-// use mysqli;
+    if ($connection->connect_error) {
+        die("Erro na conexão: ".$connection->connect_error);
+    }
+    echo "conexao bem sucedida";
 
-// define("HOST","localhost");
-// define("DBNAME","cinemas");
-// define("USER","root");
-// define("PASSWORD","");
-// define("ROOT_PATH",dirname(__FILE__));
+    // Cria o banco de dados "cinema" se ele não existir
+    $criarBanco = "CREATE DATABASE IF NOT EXISTS cinema";
+    if ($connection->query($criarBanco) === TRUE) {
+        echo "Banco de dados 'cinema' criado com sucesso!<br>";
+    } else {
+        echo "Erro ao criar o banco de dados 'cinema': " . $connection->error . "<br>";
+    }
 
-// class Connection{
-//     private static $connection;
+    // Seleciona o banco de dados "cinema"
+    $connection->select_db("cinema");
 
-//     private function __contructor(){
+    // Cria a tabela "atores" se ela não existir
+    $criarTabela = "CREATE TABLE IF NOT EXISTS atores (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(255) NOT NULL,
+        nacionalidade VARCHAR(255),
+        data_nascimento DATE
+    )";
 
-//     }
-    
-//     public static function getInstace(){
-//         if(!isset(self::$conncetion)){
-//             self::$connection = new mysqli(HOST,USER,PASSWORD);
-//             if(self::$connection->connect_error){
-//                 die("Conexao falhou".self::$connection->connect_error);
-//             }
-//             if(!self::$connection->select_db(DBNAME)){
-//                 $commands = file_get_contents(ROOT_PATH."/cinemas.sql");
-//                 self::$connection->multi_query($commands);
-//             }
-//             return self::connection;
-//         }
-//     }
+    if ($connection->query($criarTabela) === TRUE) {
+        echo "Tabela 'atores' criada com sucesso!";
+    } else {
+        echo "Erro ao criar a tabela 'atores': " . $connection->error;
+    }
 ?>

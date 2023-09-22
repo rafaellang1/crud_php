@@ -13,7 +13,6 @@
         <form class="col-4 p-3" method="POST">
             <h3 class="text-center text-secondary">Cadastro de Atores</h3>
             <p class="text-center text-secondary">Insira aqui os dados dos atores que participaram do filme</p>
-
             <?php
                 include "model/connection.php";
                 include "controller/createController.php";
